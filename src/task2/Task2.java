@@ -22,13 +22,18 @@ class Screen {
         Scanner in = new Scanner(System.in);
         System.out.println("Enter eps ===>");
         double eps = in.nextDouble();
+        int n;
         try {
-            int n = (int) Math.ceil((Math.sqrt(1 / eps) - 1));
+            if (Math.sqrt(1 / eps)!=Math.ceil(Math.sqrt(1 / eps))) {
+                n = (int) Math.ceil((Math.sqrt(1 / eps) - 1));
+            } else {
+                n = (int) Math.ceil((Math.sqrt(1 / eps) - 1))+1;
+            }
         System.out.println("Наименьший номер элемента последовательности:  " + n);
         System.out.println();
 
             for (int i = 1; i <= n; i++) {
-                System.out.println("a" + i + " = " + (double)1 / ((i + 1) ^ 2));
+                System.out.println("a" + i + " = " + (double)1 / ((i + 1)*(i + 1)));
             }
         } catch (ArithmeticException e) {
 
